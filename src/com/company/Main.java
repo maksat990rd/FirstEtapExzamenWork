@@ -29,14 +29,13 @@ public class Main {
         16) Баардык userлерди консольго чыгарыныз. */
 
         Scanner scanner = new Scanner(System.in);
-        User user = new User(0, "Aziza", 23, Gender.FEMALE);
+
         User user1 = new User(1, "Datka", 21, Gender.FEMALE);
         User user2 = new User(2, "Nursultanka", 25, Gender.MALE);
-        User user3 = new User(3, "Nursultanka", 25, Gender.MALE);
+        User user3 = new User(3, "Aziza", 25, Gender.MALE);
 
        UserService userService = new UserServiceImpl();
 
-       userService.addUser(user);
        userService.addUser(user1);
        userService.addUser(user2);
        userService.addUser(user3);

@@ -42,16 +42,17 @@ public class UserDao {
         return false;
     }
 
-    @Override
-    public String toString() {
-        return "UserDao: " + userArrayList;
-    }
-
     public List<User> getUserArrayList() {
         return userArrayList;
     }
 
     public void setUserArrayList(List<User> userArrayList) {
         this.userArrayList = userArrayList;
+    }
+
+    public void delete(int id) {
+
+        User naydi = naydi(id);
+        userArrayList.remove(naydi);
     }
 }

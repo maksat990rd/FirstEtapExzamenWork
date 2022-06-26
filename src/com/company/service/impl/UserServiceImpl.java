@@ -2,10 +2,12 @@ package com.company.service.impl;
 
 import com.company.NotFoundException;
 import com.company.dao.UserDao;
+import com.company.model.Gender;
 import com.company.model.User;
 import com.company.service.UserService;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class UserServiceImpl implements UserService {
@@ -17,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // UserServiceтин ичинде 4 метод болот, userди кошуу, id менен табуу, id менен очуруу жана баардык userлерди алуу
+    // UserServiceтин ичинде 4 метод болот, userди кошуу, id менен табуу, id менен очуруу жана баардык userлерди алуy
 
     @Override
     public void addUser(User user) {
@@ -29,7 +31,8 @@ public class UserServiceImpl implements UserService {
 //                System.out.println(e.getMessage());
 //            }
 
-        userDao.addUser(user);
+            userDao.addUser(user);
+
     }
 
     @Override
@@ -54,7 +57,7 @@ public class UserServiceImpl implements UserService {
     public void shouAllUser() {
 
         List<User> userList = userDao.getUsers();
-        userList.stream().filter(x ->x.getId() != 0).forEach(System.out::println);
+        userList.forEach(System.out::println);
     }
 
     @Override
@@ -68,14 +71,7 @@ public class UserServiceImpl implements UserService {
             }
         }
 
-        User user = userDao.naydi(id);
-        if (user.getId() == id) {
-            System.out.println(user + ": is delete! \n");
-
-            user = userDao.getUserArrayList().remove(id);
-            shouAllUser();
-
-
-        }
+        userDao.delete(id);
+        shouAllUser();
     }
 }
